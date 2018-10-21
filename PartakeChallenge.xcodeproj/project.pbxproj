@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		55F314722178F85900027EB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F314712178F85900027EB6 /* AppDelegate.swift */; };
-		55F314742178F85900027EB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F314732178F85900027EB6 /* ViewController.swift */; };
 		55F314792178F85B00027EB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55F314782178F85B00027EB6 /* Assets.xcassets */; };
 		55F3147C2178F85B00027EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55F3147A2178F85B00027EB6 /* LaunchScreen.storyboard */; };
 		55F3148421793C0D00027EB6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F3148321793C0D00027EB6 /* UIColor+Extension.swift */; };
 		55F3148721793C7A00027EB6 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F3148621793C7A00027EB6 /* Header.swift */; };
 		55F3148921793DC100027EB6 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F3148821793DC100027EB6 /* CircleImageView.swift */; };
 		55F3148C21794A3500027EB6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F3148B21794A3500027EB6 /* UIView+Extensions.swift */; };
+		55F314F1217C9C0000027EB6 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F314F0217C9C0000027EB6 /* UIFont+Extension.swift */; };
+		55F314F5217CA62300027EB6 /* StackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F314F4217CA62300027EB6 /* StackView+Extension.swift */; };
+		55F314F7217CA76800027EB6 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55F314F3217C9D9400027EB6 /* Roboto-Medium.ttf */; };
+		55F314F8217CA76B00027EB6 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55F314F2217C9D8300027EB6 /* Roboto-Light.ttf */; };
+		55F314FA217CA9DC00027EB6 /* VenuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F314F9217CA9DC00027EB6 /* VenuesViewController.swift */; };
+		55F314FD217CAEA100027EB6 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F314FC217CAEA100027EB6 /* RequestManager.swift */; };
+		55F31500217CAFCA00027EB6 /* default.json in Resources */ = {isa = PBXBuildFile; fileRef = 55F314FF217CAFCA00027EB6 /* default.json */; };
+		55F31503217CB06400027EB6 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F31502217CB06400027EB6 /* Venue.swift */; };
 		826D22FFE52F72DDF7771BBE /* Pods_PartakeChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57C55B197FF039BA7D9076CE /* Pods_PartakeChallenge.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		55F3146E2178F85900027EB6 /* PartakeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartakeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55F314712178F85900027EB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		55F314732178F85900027EB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		55F314782178F85B00027EB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55F3147B2178F85B00027EB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55F3147D2178F85B00027EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,6 +35,14 @@
 		55F3148621793C7A00027EB6 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		55F3148821793DC100027EB6 /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		55F3148B21794A3500027EB6 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		55F314F0217C9C0000027EB6 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		55F314F2217C9D8300027EB6 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		55F314F3217C9D9400027EB6 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		55F314F4217CA62300027EB6 /* StackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView+Extension.swift"; sourceTree = "<group>"; };
+		55F314F9217CA9DC00027EB6 /* VenuesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesViewController.swift; sourceTree = "<group>"; };
+		55F314FC217CAEA100027EB6 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		55F314FF217CAFCA00027EB6 /* default.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = default.json; sourceTree = "<group>"; };
+		55F31502217CB06400027EB6 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		57C55B197FF039BA7D9076CE /* Pods_PartakeChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartakeChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5E8A7975D2E818FC89E6D42 /* Pods-PartakeChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartakeChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PartakeChallenge/Pods-PartakeChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		F0923D550F0DB48D16716B57 /* Pods-PartakeChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartakeChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-PartakeChallenge/Pods-PartakeChallenge.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,13 +81,17 @@
 		55F314702178F85900027EB6 /* PartakeChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				55F314712178F85900027EB6 /* AppDelegate.swift */,
+				55F314F9217CA9DC00027EB6 /* VenuesViewController.swift */,
+				55F314FB217CAE8A00027EB6 /* API */,
+				55F31501217CB04200027EB6 /* Data Models */,
 				55F3148A21794A1800027EB6 /* Extensions */,
 				55F3148521793C6000027EB6 /* Views */,
-				55F314712178F85900027EB6 /* AppDelegate.swift */,
-				55F314732178F85900027EB6 /* ViewController.swift */,
 				55F314782178F85B00027EB6 /* Assets.xcassets */,
 				55F3147A2178F85B00027EB6 /* LaunchScreen.storyboard */,
 				55F3147D2178F85B00027EB6 /* Info.plist */,
+				55F314F6217CA75600027EB6 /* Fonts */,
+				55F314FE217CAFA400027EB6 /* Stubbed JSON */,
 			);
 			path = PartakeChallenge;
 			sourceTree = "<group>";
@@ -92,8 +110,43 @@
 			children = (
 				55F3148321793C0D00027EB6 /* UIColor+Extension.swift */,
 				55F3148B21794A3500027EB6 /* UIView+Extensions.swift */,
+				55F314F0217C9C0000027EB6 /* UIFont+Extension.swift */,
+				55F314F4217CA62300027EB6 /* StackView+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		55F314F6217CA75600027EB6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				55F314F3217C9D9400027EB6 /* Roboto-Medium.ttf */,
+				55F314F2217C9D8300027EB6 /* Roboto-Light.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		55F314FB217CAE8A00027EB6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				55F314FC217CAEA100027EB6 /* RequestManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		55F314FE217CAFA400027EB6 /* Stubbed JSON */ = {
+			isa = PBXGroup;
+			children = (
+				55F314FF217CAFCA00027EB6 /* default.json */,
+			);
+			path = "Stubbed JSON";
+			sourceTree = "<group>";
+		};
+		55F31501217CB04200027EB6 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				55F31502217CB06400027EB6 /* Venue.swift */,
+			);
+			path = "Data Models";
 			sourceTree = "<group>";
 		};
 		845169A2295B6E2C4CBFFEB0 /* Pods */ = {
@@ -174,7 +227,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				55F3147C2178F85B00027EB6 /* LaunchScreen.storyboard in Resources */,
+				55F31500217CAFCA00027EB6 /* default.json in Resources */,
 				55F314792178F85B00027EB6 /* Assets.xcassets in Resources */,
+				55F314F8217CA76B00027EB6 /* Roboto-Light.ttf in Resources */,
+				55F314F7217CA76800027EB6 /* Roboto-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,11 +263,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PartakeChallenge/Pods-PartakeChallenge-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Anchorage/Anchorage.framework",
+				"${BUILT_PRODUCTS_DIR}/BonMot/BonMot.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Anchorage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BonMot.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,10 +284,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55F314F1217C9C0000027EB6 /* UIFont+Extension.swift in Sources */,
+				55F31503217CB06400027EB6 /* Venue.swift in Sources */,
+				55F314FA217CA9DC00027EB6 /* VenuesViewController.swift in Sources */,
 				55F3148C21794A3500027EB6 /* UIView+Extensions.swift in Sources */,
 				55F3148721793C7A00027EB6 /* Header.swift in Sources */,
 				55F3148421793C0D00027EB6 /* UIColor+Extension.swift in Sources */,
-				55F314742178F85900027EB6 /* ViewController.swift in Sources */,
+				55F314F5217CA62300027EB6 /* StackView+Extension.swift in Sources */,
+				55F314FD217CAEA100027EB6 /* RequestManager.swift in Sources */,
 				55F3148921793DC100027EB6 /* CircleImageView.swift in Sources */,
 				55F314722178F85900027EB6 /* AppDelegate.swift in Sources */,
 			);

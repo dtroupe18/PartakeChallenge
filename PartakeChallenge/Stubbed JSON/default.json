@@ -1,0 +1,522 @@
+[
+    {
+        "_id": "579cf4142268951100d6c55f",
+        "name": "Alpine Country Club",
+        "location": "Demarest, NJ",
+        "longitude": -73.9500308,
+        "latitude": 40.9525287,
+        "created": "2016-07-30T18:38:12.474Z",
+        "isPublic": false,
+        "courses": [
+            "57a619182f4e35110056a47c"
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "address": {
+            "state": "NJ",
+            "line1": "80 Anderson Ave",
+            "city": "Demarest",
+            "zip": 7627
+        },
+        "imageUrl": "https://partakegolf.s3-us-west-2.amazonaws.com/golf-club/1537d7a0-5b3e-11e6-93c3-c7ff9d846a20.png",
+        "type": "golf-club"
+    },
+    {
+        "_id": "57d74890b4481a11000e1287",
+        "name": "Alsatian Golf Club",
+        "latitude": 29.3616317,
+        "longitude": -98.9354949,
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/386b2be0-7949-11e6-9a87-856753040018.jpg",
+        "location": "Castroville, TX",
+        "created": "2016-09-13T00:30:08.926Z",
+        "isPublic": false,
+        "courses": [
+            
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "address": {
+            "line1": "1339 County Rd 4516",
+            "city": "Castroville",
+            "state": "TX",
+            "zip": 78009
+        },
+        "type": "golf-club"
+    },
+    {
+        "_id": "57bb834e946c8b1100740278",
+        "name": "Alvin Golf & Country Club",
+        "longitude": -95.2906212,
+        "latitude": 29.4535449,
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/c2c51dd0-68bb-11e6-9664-81eb091db149.jpeg",
+        "location": "Alvin, TX",
+        "created": "2016-08-22T22:57:18.999Z",
+        "isPublic": false,
+        "courses": [
+            "57bb872e946c8b1100740279"
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "address": {
+            "line1": "785 County Rd 539",
+            "city": "Alvin",
+            "state": "TX",
+            "zip": 77511
+        },
+        "type": "golf-club"
+    },
+    {
+        "_id": "57974882c3fc031100bc1323",
+        "name": "Athens Country Club",
+        "location": "Athens, TX",
+        "longitude": -95.863661,
+        "latitude": 32.192181,
+        "created": "2016-07-26T11:24:50.394Z",
+        "isPublic": false,
+        "courses": [
+            "5797495fc3fc031100bc1324"
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "address": {
+            "line1": "500 Park Drive",
+            "city": "Athens",
+            "state": "TX",
+            "zip": 75751
+        },
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/87cb2d20-5bd5-11e6-beb5-1f324a83429a.jpg",
+        "type": "golf-club"
+    },
+    {
+        "_id": "579f987bc4ffb21100b17346",
+        "name": "Augusta Pines",
+        "location": "Spring, TX",
+        "longitude": -95.538457,
+        "latitude": 30.129329,
+        "created": "2016-08-01T18:44:11.102Z",
+        "isPublic": false,
+        "courses": [
+            
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "type": "golf-club"
+    },
+    {
+        "_id": "579f987ac4ffb21100b17345",
+        "name": "Augusta Pines",
+        "location": "Spring, TX",
+        "longitude": -95.538457,
+        "latitude": 30.129329,
+        "created": "2016-08-01T18:44:10.880Z",
+        "isPublic": false,
+        "courses": [
+            "579f9937c4ffb21100b17347"
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "address": {
+            "line1": "18 Augusta Pines Dr",
+            "city": "Spring",
+            "state": "TX",
+            "zip": 77389
+        },
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/c8bf22f0-5bd5-11e6-beb5-1f324a83429a.jpg",
+        "type": "golf-club"
+    },
+    {
+        "_id": "5795374cec7e191100811dbc",
+        "name": "Austin Country Club",
+        "location": "Austin, TX",
+        "latitude": 30.3429105,
+        "longitude": -97.7996388,
+        "created": "2016-07-24T21:46:52.392Z",
+        "isPublic": false,
+        "courses": [
+            "57953a696032bf1100ded9df"
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/fcabe9f0-5bfc-11e6-80f8-b9fee1b91c7e.png",
+        "address": {
+            "line1": "4408 Long Champ Dr.",
+            "city": "Austin",
+            "state": "TX",
+            "zip": 78746
+        },
+        "type": "golf-club"
+    },
+    {
+        "_id": "579955ca1bcbe11100aa14ef",
+        "name": "Balcones Country Club",
+        "location": "Austin, TX",
+        "longitude": -97.7836257,
+        "latitude": 30.4375695,
+        "created": "2016-07-28T00:46:02.381Z",
+        "isPublic": false,
+        "courses": [
+            "579957231bcbe11100aa14f0"
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/15e77fe0-5bff-11e6-80f8-b9fee1b91c7e.jpg",
+        "address": {
+            "line1": "8600 Balcones Club Dr.",
+            "city": "Austin",
+            "state": "TX",
+            "zip": 78750
+        },
+        "type": "golf-club"
+    },
+    {
+        "_id": "57a918fd18ffc91100ba8a44",
+        "name": "Barton Creek Golf Club",
+        "longitude": -97.8622117,
+        "latitude": 30.2918753,
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/d12bd1c0-5dc1-11e6-aff0-6fe8f3f6211f.jpg",
+        "location": "Austin, TX",
+        "created": "2016-08-08T23:42:53.462Z",
+        "isPublic": false,
+        "courses": [
+            "57a91b0c18ffc91100ba8a6d",
+            "57a91c8e18ffc91100ba8b1d",
+            "57a91e4318ffc91100ba8bf8",
+            "57a9200118ffc91100ba8c73"
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "address": {
+            "line1": "8212 Barton Club Dr",
+            "city": "Austin",
+            "state": "TX",
+            "zip": 78735
+        },
+        "type": "golf-club"
+    },
+    {
+        "_id": "57974aacc3fc031100bc1371",
+        "name": "Battle Lake Golf Course",
+        "location": "Mart, TX",
+        "longitude": -96.897559,
+        "latitude": 31.544738,
+        "created": "2016-07-26T11:34:04.156Z",
+        "isPublic": false,
+        "courses": [
+            "57974c7dc3fc031100bc13e8"
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "address": {
+            "line1": "4443 Battle Lake Rd",
+            "city": "Mart",
+            "state": "TX",
+            "zip": 76664
+        },
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/0b745b50-5bd7-11e6-beb5-1f324a83429a.jpg",
+        "type": "golf-club"
+    },
+    {
+        "_id": "579f6892f3fc8d1100254be3",
+        "name": "Battleground Golf Course at Deer Park",
+        "location": "Deer Park, TX",
+        "longitude": -95.136724,
+        "latitude": 29.696813,
+        "created": "2016-08-01T15:19:46.589Z",
+        "isPublic": false,
+        "courses": [
+            "579f690df3fc8d1100254be4"
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/7ec1bfe0-5d5c-11e6-80d4-03b62f900401.jpg",
+        "address": {
+            "line1": "1600 Georiga Ave",
+            "city": "Deer Park",
+            "state": "TX",
+            "zip": 77536
+        },
+        "type": "golf-club"
+    },
+    {
+        "_id": "57974d63c3fc031100bc1422",
+        "name": "Bear Creek Golf Club",
+        "location": "Dallass, TX",
+        "longitude": -97.058496,
+        "latitude": 32.862238,
+        "created": "2016-07-26T11:45:39.401Z",
+        "isPublic": false,
+        "courses": [
+            "57a5f87f2f4e351100569cac",
+            "57a5fff92f4e351100569daf"
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "address": {
+            "line1": "3500 Bear Creek Ct",
+            "city": "Dallass",
+            "state": "TX",
+            "zip": 75261
+        },
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/6ba96a60-5bd7-11e6-beb5-1f324a83429a.jpg",
+        "type": "golf-club"
+    },
+    {
+        "_id": "57974e5bc3fc031100bc1423",
+        "name": "Bent Tree Country Club",
+        "location": "Dallas, TX",
+        "longitude": -96.821929,
+        "latitude": 32.982251,
+        "created": "2016-07-26T11:49:47.968Z",
+        "isPublic": false,
+        "courses": [
+            "57974f3cc3fc031100bc1424"
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "address": {
+            "line1": "5201 Westgrove Dr",
+            "line2": "",
+            "city": "Dallas",
+            "state": "TX",
+            "zip": 75248
+        },
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/00674ea0-5bd9-11e6-beb5-1f324a83429a.jpg",
+        "type": "golf-club"
+    },
+    {
+        "_id": "57a49f321f0b6311009e35f4",
+        "name": "Bentwater Yacht and Golf Club",
+        "location": "Montgomery, TX",
+        "longitude": -95.627243,
+        "latitude": 30.423484,
+        "created": "2016-08-05T14:14:10.987Z",
+        "isPublic": false,
+        "courses": [
+            "57a607f82f4e351100569f6b",
+            "57a6092f2f4e35110056a042",
+            "57a60ab72f4e35110056a10e"
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "address": {
+            "line1": "800 Bentwater Dr",
+            "city": "Montgomery",
+            "state": "TX",
+            "zip": 77356
+        },
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/4b1bc200-5bd9-11e6-beb5-1f324a83429a.gif",
+        "type": "golf-club"
+    },
+    {
+        "_id": "5b149d875832bc001aa3f6cc",
+        "name": "Black Market - Training Account",
+        "countryCode": "1",
+        "website": "http://www.bartonspringssaloonatx.com/directions.html",
+        "location": "Austin, TX",
+        "longitude": -97.75880159999997,
+        "latitude": 30.2613662,
+        "type": "food-truck",
+        "created": "2018-06-04T02:01:43.476Z",
+        "isPreview": false,
+        "isPublic": true,
+        "address": {
+            "line1": "424 S Lamar Blvd",
+            "line2": "Zilker",
+            "city": "Austin",
+            "state": "TX",
+            "zip": 78704,
+            "formatted": "424 S Lamar Blvd, Austin, TX 78704, USA"
+        },
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/dcb4a6f0-67ad-11e8-8b9c-09111d536ebc.png",
+        "shareTabs": false,
+        "trackEmployees": false
+    },
+    {
+        "_id": "57a4ac501f0b6311009e377b",
+        "name": "Blackhorse Golf Club",
+        "location": "Cypress, TX",
+        "longitude": -95.703982,
+        "latitude": 29.955905,
+        "created": "2016-08-05T15:10:08.752Z",
+        "isPublic": false,
+        "courses": [
+            "57a60cdf2f4e35110056a193",
+            "57a60e742f4e35110056a222"
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "address": {
+            "line1": "12205 Fry Rd",
+            "line2": "",
+            "city": "Cypress",
+            "state": "TX",
+            "zip": 77433
+        },
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/6b23a220-5be3-11e6-80f8-b9fee1b91c7e.jpg",
+        "type": "golf-club"
+    },
+    {
+        "_id": "57b622fe6e5cfd1100296359",
+        "name": "Bluebonnet Hill Golf Course",
+        "longitude": -97.6182498,
+        "latitude": 30.3189297,
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/6bf29870-6587-11e6-b1c3-7144b0202fae.jpg",
+        "location": "Austin, TX",
+        "created": "2016-08-18T21:05:02.997Z",
+        "isPublic": false,
+        "courses": [
+            "57b6253a6e5cfd110029635a"
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "address": {
+            "line1": "9100 Decker Ln",
+            "city": "Austin",
+            "state": "TX",
+            "zip": 78724
+        },
+        "type": "golf-club"
+    },
+    {
+        "_id": "57a0175c9141c11100e7154c",
+        "name": "Bluejack National Golf Club",
+        "location": "Montgomery, TX",
+        "longitude": -95.771204,
+        "latitude": 30.305915,
+        "created": "2016-08-02T03:45:32.001Z",
+        "isPublic": false,
+        "courses": [
+            
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "address": {
+            "line1": "4430 S Farm to Market 1486",
+            "city": "Montgomery",
+            "state": "TX",
+            "zip": 77316
+        },
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/81f59f30-5bf2-11e6-80f8-b9fee1b91c7e.jpg",
+        "type": "golf-club"
+    },
+    {
+        "_id": "57a135f720ea4111008ce2a4",
+        "name": "Brackenridge Park Golf Course",
+        "location": "San Antonio, TX",
+        "longitude": -98.5220978,
+        "latitude": 29.4809349,
+        "created": "2016-08-03T00:08:23.465Z",
+        "isPublic": false,
+        "courses": [
+            "57a1374f20ea4111008ce2a5"
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/d7ac2f80-5c00-11e6-80f8-b9fee1b91c7e.jpg",
+        "address": {
+            "line1": "2315 Avenue B",
+            "city": "San Antonio",
+            "state": "TX",
+            "zip": 78215
+        },
+        "type": "golf-club"
+    },
+    {
+        "_id": "57975fd5b783b211009906ab",
+        "name": "Bridgeport Country Club",
+        "location": "Bridgeport, TX",
+        "longitude": -97.75822,
+        "latitude": 33.199205,
+        "created": "2016-07-26T13:04:21.419Z",
+        "isPublic": false,
+        "courses": [
+            
+        ],
+        "stores": [
+            
+        ],
+        "restaurants": [
+            
+        ],
+        "imageUrl": "https://partakegolf.s3.amazonaws.com/golf-club/13a14a00-5d6b-11e6-892e-9b2e3bdcbbf1.jpg",
+        "address": {
+            "line1": "250 FM 2123",
+            "city": "Bridgeport",
+            "state": "TX",
+            "zip": 76426
+        },
+        "type": "golf-club"
+    }
+]

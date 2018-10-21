@@ -5,6 +5,7 @@ target 'PartakeChallenge' do
   use_frameworks!
   pod 'Kingfisher', '~> 4.0'
   pod 'Anchorage'
+  pod 'BonMot'
 
   # Pods for PartakeChallenge
 

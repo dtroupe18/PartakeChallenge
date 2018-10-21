@@ -1,20 +1,24 @@
 PODS:
   - Anchorage (4.2.4)
+  - BonMot (5.3)
   - Kingfisher (4.10.0)
 
 DEPENDENCIES:
   - Anchorage
+  - BonMot
   - Kingfisher (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Anchorage
+    - BonMot
     - Kingfisher
 
 SPEC CHECKSUMS:
   Anchorage: f855157310859280c706cc0b9c9281c21702f515
+  BonMot: 0104d1b4eda54f4a4b7393d6559539ef25498fbd
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
 
-PODFILE CHECKSUM: 5a64d7a2261595f41fb988af87366e7cf45a1650
+PODFILE CHECKSUM: 5c1132bdc6d4219c2ee9fed521982b07e4da34db
 
 COCOAPODS: 1.5.3
