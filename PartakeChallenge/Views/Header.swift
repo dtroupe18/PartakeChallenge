@@ -30,11 +30,18 @@ class Header: UIView {
         .color(.white)
     )
     
+    private let placeHolderStyle = StringStyle(
+        .font(.light(withSize: 14)),
+        .alignment(.left),
+        .color(.black)
+    )
+    
     private let fullStackView = UIStackView()
     private let horizontalStackView = UIStackView()
-    
     private let userImageView = CircleImageView()
-    private let searchBar = UITextField()
+    let searchBar = UITextField() // not private so we can assign the delegate to the VC
+    private let searchImageView = UIImageView()
+    private let sliderImageView = UIImageView()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -63,21 +70,41 @@ class Header: UIView {
         horizontalStackView.horizontalAnchors == horizontalAnchors + 20
         horizontalStackView.topAnchor == topAnchor + 8
         horizontalStackView.heightAnchor == 36
-        
+
         userImageView.widthAnchor == 36
         userImageView.image = UIImage(named: "profilePicture")
         userImageView.contentMode = .scaleAspectFill
- 
+
         titleLabel.attributedText = "Select Venue".styled(with: titleStyle)
         rightButton.widthAnchor == 36
-        
-        horizontalStackView.addArrangedSubviews([userImageView, titleLabel, rightButton])
-        horizontalStackView.bottomAnchor == bottomAnchor - 8
 
-//        addSubview(searchBar)
-//        searchBar.placeholder = "search venues..."
-//        searchBar.layer.cornerRadius = searchBar.frame.height/2
+        horizontalStackView.addArrangedSubviews([userImageView, titleLabel, rightButton])
+
+        addSubview(searchBar)
         
+        let searchImage = UIImage(named: "search")
+        searchImageView.widthAnchor == 40 // little wider to get some extra space
+        searchImageView.heightAnchor == 20
+        searchImageView.contentMode = .scaleAspectFit // keeps the image square
+        searchImageView.image = searchImage
+        searchBar.leftView = searchImageView
+        searchBar.leftViewMode = .always
+        
+        let sliderImage = UIImage(named: "slider")
+        sliderImageView.widthAnchor == 40 // little wider to get some extra space
+        sliderImageView.heightAnchor == 20
+        sliderImageView.contentMode = .scaleAspectFit // keeps the image square
+        sliderImageView.image = sliderImage
+        searchBar.rightView = sliderImageView
+        searchBar.rightViewMode = .always
+        
+        searchBar.attributedPlaceholder = "search venues...".styled(with: placeHolderStyle)
+        searchBar.topAnchor == horizontalStackView.bottomAnchor + 13
+        searchBar.heightAnchor == 31
+        searchBar.horizontalAnchors == horizontalAnchors + 20
+        searchBar.bottomAnchor == bottomAnchor - 13
+        searchBar.backgroundColor = .white
+        searchBar.layer.cornerRadius = 15
     }
     
     required init?(coder aDecoder: NSCoder) {
