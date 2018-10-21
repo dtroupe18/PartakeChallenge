@@ -30,6 +30,8 @@ class VenueCell: UITableViewCell {
     let labelStackView = UIStackView()
     let nameLabel = UILabel()
     let locationLabel = UILabel()
+    
+    var imageViewHeightContraint: NSLayoutConstraint?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,31 +47,72 @@ class VenueCell: UITableViewCell {
         venueImageView.clipsToBounds = true
         venueImageView.topAnchor == topAnchor
         venueImageView.horizontalAnchors == horizontalAnchors + 20
-        venueImageView.heightAnchor == venueImageView.widthAnchor * 0.51
-        // venueImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleBottomMargin, .flexibleRightMargin, .flexibleLeftMargin, .flexibleTopMargin]
-        // venueImageView.contentMode = .scaleAspectFit
-        // venueImageView.contentMode = .bottom
-        venueImageView.clipsToBounds = true
-        
-        
+        imageViewHeightContraint = venueImageView.heightAnchor == venueImageView.widthAnchor * 0.51
+        venueImageView.contentMode = .scaleToFill
+
         if let url = URL(string: venue.imageURL) {
             KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil, completionHandler: {[weak self] image, error, cacheType, imageURL in
                 if error != nil {
                     print("Error: \(error!.localizedDescription)")
                 } else if let img = image, let sself = self {
-                
-                    let ratio = img.size.width / img.size.height
-                    if sself.containerView.frame.width > sself.containerView.frame.height {
-                        let newHeight = sself.containerView.frame.width / ratio
-                        sself.venueImageView.frame.size = CGSize(width: sself.containerView.frame.width, height: newHeight)
-                    }
-                    else{
-                        let newWidth = sself.containerView.frame.height * ratio
-                        sself.venueImageView.frame.size = CGSize(width: newWidth, height: sself.containerView.frame.height)
-                    }
                     
-                    // sself.venueImageView.image = sself.cropToBounds(image: img, width: width, height: height)
-                    sself.venueImageView.image = img
+//                    let ratio = img.size.width / img.size.height
+//                    let newHeight = sself.venueImageView.frame.width / ratio
+//                    sself.imageViewHeightContraint?.constant = newHeight
+//                    sself.layoutIfNeeded()
+                    
+//                    let ratio = img.size.width / img.size.height
+//                    let imageViewRatio = sself.venueImageView.frame.size.width / sself.venueImageView.frame.size.height
+//                    print("imageRatio: \(ratio)")
+//                    print("imageViewRatio: \(imageViewRatio)")
+//
+//                    if sself.containerView.frame.width > sself.containerView.frame.height {
+//                        let newHeight = sself.containerView.frame.width / ratio
+//                        sself.venueImageView.frame.size = CGSize(width: sself.containerView.frame.width, height: newHeight)
+//                    }
+//                    else {
+//                        let newWidth = sself.containerView.frame.height * ratio
+//                        sself.venueImageView.frame.size = CGSize(width: newWidth, height: sself.containerView.frame.height)
+//                    }
+                    
+//                    let resized = img.resize(height: sself.venueImageView.frame.height)
+//                    print("resized.height: \(String(describing: resized?.size.height))")
+//                    print("venueImageView.frame.height: \(sself.venueImageView.frame.height)")
+//                    print("\n")
+//                    sself.venueImageView.image = resized
+                    
+//                    let resized = img.resize(width: sself.venueImageView.frame.width)
+//                    sself.venueImageView.image = resized
+//                    print("resized.width: \(String(describing: resized.size.width))")
+//                    print("resized.height: \(String(describing: resized.size.height))")
+//                    print("venueImageView.frame.height: \(sself.venueImageView.frame.width)")
+//                    print("\n")
+                    
+//                    let resized = img.resizeImage(targetSize: sself.venueImageView.frame.size)
+//                    sself.venueImageView.image = resized
+//                    print("resized.width: \(String(describing: resized.size.width))")
+//                    print("resized.height: \(String(describing: resized.size.height))")
+//                    print("venueImageView.frame.width: \(sself.venueImageView.frame.width)")
+//                    print("venueImageView.frame.height: \(sself.venueImageView.frame.height)")
+//                    print("\n")
+                    
+//                    let resized = sself.resizedImageWith(image: img, targetSize: sself.venueImageView.frame.size)
+//                    sself.venueImageView.image = resized
+//                    print("original.width: \(String(describing: img.size.width))")
+//                    print("original.height: \(String(describing: img.size.height))")
+//                    print("resized.width: \(String(describing: resized?.size.width))")
+//                    print("resized.height: \(String(describing: resized?.size.height))")
+//                    print("\n")
+                    
+                    let cropped = sself.cropToBounds(image: img, width: Double(sself.venueImageView.frame.width), height: Double(sself.venueImageView.frame.height))
+                    sself.venueImageView.image = cropped
+                    print("original.width: \(String(describing: img.size.width))")
+                    print("original.height: \(String(describing: img.size.height))")
+                    print("resized.width: \(String(describing: cropped.size.width))")
+                    print("resized.height: \(String(describing: cropped.size.height))")
+                    print("\n")
+
+
                 }
             })
         } else {
@@ -95,6 +138,30 @@ class VenueCell: UITableViewCell {
         labelStackView.horizontalAnchors == horizontalAnchors + 20
         labelStackView.bottomAnchor == bottomAnchor - 12
         labelStackView.addArrangedSubviews([nameLabel, locationLabel])
+        
+        selectionStyle = .none
+    }
+    
+    func resizedImageWith(image: UIImage, targetSize: CGSize) -> UIImage? {
+        
+        let imageSize = image.size
+        let newWidth  = targetSize.width/image.size.width
+        let newHeight = targetSize.height/image.size.height
+        var newSize: CGSize
+        
+        if newWidth > newHeight {
+            newSize = CGSize(width: imageSize.width * newHeight, height: imageSize.height * newHeight)
+        } else {
+            newSize = CGSize(width: imageSize.width * newWidth, height: imageSize.height * newWidth)
+        }
+        
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        image.draw(in: rect)
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
     }
     
     func cropToBounds(image: UIImage, width: Double, height: Double) -> UIImage {
@@ -150,5 +217,4 @@ class VenueCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
 }
