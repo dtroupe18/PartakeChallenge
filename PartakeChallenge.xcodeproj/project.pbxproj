@@ -24,7 +24,7 @@
 		55F31503217CB06400027EB6 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F31502217CB06400027EB6 /* Venue.swift */; };
 		55F31506217CB9ED00027EB6 /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F31505217CB9ED00027EB6 /* VenueCell.swift */; };
 		55F31508217CDD1400027EB6 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F31507217CDD1400027EB6 /* UIImage+Extension.swift */; };
-		55F3150A217CE7D700027EB6 /* ScaledHeightImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F31509217CE7D700027EB6 /* ScaledHeightImageView.swift */; };
+		55F3150C217D0C3900027EB6 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F3150B217D0C3900027EB6 /* UIViewController+Extension.swift */; };
 		826D22FFE52F72DDF7771BBE /* Pods_PartakeChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57C55B197FF039BA7D9076CE /* Pods_PartakeChallenge.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +48,7 @@
 		55F31502217CB06400027EB6 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		55F31505217CB9ED00027EB6 /* VenueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
 		55F31507217CDD1400027EB6 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
-		55F31509217CE7D700027EB6 /* ScaledHeightImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledHeightImageView.swift; sourceTree = "<group>"; };
+		55F3150B217D0C3900027EB6 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		57C55B197FF039BA7D9076CE /* Pods_PartakeChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartakeChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5E8A7975D2E818FC89E6D42 /* Pods-PartakeChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartakeChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PartakeChallenge/Pods-PartakeChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		F0923D550F0DB48D16716B57 /* Pods-PartakeChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartakeChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-PartakeChallenge/Pods-PartakeChallenge.release.xcconfig"; sourceTree = "<group>"; };
@@ -108,7 +108,6 @@
 				55F3148621793C7A00027EB6 /* Header.swift */,
 				55F3148821793DC100027EB6 /* CircleImageView.swift */,
 				55F31505217CB9ED00027EB6 /* VenueCell.swift */,
-				55F31509217CE7D700027EB6 /* ScaledHeightImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -121,6 +120,7 @@
 				55F314F0217C9C0000027EB6 /* UIFont+Extension.swift */,
 				55F314F4217CA62300027EB6 /* StackView+Extension.swift */,
 				55F31507217CDD1400027EB6 /* UIImage+Extension.swift */,
+				55F3150B217D0C3900027EB6 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -294,12 +294,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				55F314F1217C9C0000027EB6 /* UIFont+Extension.swift in Sources */,
+				55F3150C217D0C3900027EB6 /* UIViewController+Extension.swift in Sources */,
 				55F31503217CB06400027EB6 /* Venue.swift in Sources */,
 				55F314FA217CA9DC00027EB6 /* VenuesViewController.swift in Sources */,
 				55F31508217CDD1400027EB6 /* UIImage+Extension.swift in Sources */,
 				55F3148C21794A3500027EB6 /* UIView+Extensions.swift in Sources */,
 				55F3148721793C7A00027EB6 /* Header.swift in Sources */,
-				55F3150A217CE7D700027EB6 /* ScaledHeightImageView.swift in Sources */,
 				55F3148421793C0D00027EB6 /* UIColor+Extension.swift in Sources */,
 				55F314F5217CA62300027EB6 /* StackView+Extension.swift in Sources */,
 				55F31506217CB9ED00027EB6 /* VenueCell.swift in Sources */,

@@ -26,13 +26,11 @@ class VenueCell: UITableViewCell {
     )
     
     let containerView = UIView()
-    let venueImageView = ScaledHeightImageView()
+    let venueImageView = UIImageView()
     let labelStackView = UIStackView()
     let nameLabel = UILabel()
     let locationLabel = UILabel()
     
-    var imageViewHeightContraint: NSLayoutConstraint?
-
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -47,7 +45,7 @@ class VenueCell: UITableViewCell {
         venueImageView.clipsToBounds = true
         venueImageView.topAnchor == topAnchor
         venueImageView.horizontalAnchors == horizontalAnchors + 20
-        imageViewHeightContraint = venueImageView.heightAnchor == venueImageView.widthAnchor * 0.51
+        venueImageView.heightAnchor == venueImageView.widthAnchor * 0.51
         venueImageView.contentMode = .scaleToFill
 
         if let url = URL(string: venue.imageURL) {
@@ -56,7 +54,6 @@ class VenueCell: UITableViewCell {
                     print("Error: \(error!.localizedDescription)")
                 } else if let img = image, let sself = self {
                     let resized = img.resizedImageWith(targetSize: sself.venueImageView.frame.size)
-                    // let resized = sself.resizedImageWith(image: img, targetSize: sself.venueImageView.frame.size)
                     sself.venueImageView.image = resized
                 }
             })
@@ -82,23 +79,24 @@ class VenueCell: UITableViewCell {
         labelStackView.horizontalAnchors == horizontalAnchors + 20
         labelStackView.bottomAnchor == bottomAnchor - 12
         labelStackView.addArrangedSubviews([nameLabel, locationLabel])
-        
+
         selectionStyle = .none
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         venueImageView.image = nil
     }
     
     func hide() {
-        for aView in containerView.subviews{
-            aView.alpha = 0.0
+        for view in containerView.subviews {
+            view.alpha = 0.0
         }
     }
     
     func show() {
-        for aView in containerView.subviews{
-            aView.alpha = 1.0
+        for view in containerView.subviews {
+            view.alpha = 1.0
         }
     }
 
@@ -106,3 +104,4 @@ class VenueCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 }
+

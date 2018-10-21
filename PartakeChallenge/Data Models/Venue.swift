@@ -54,7 +54,7 @@ struct Venue: Decodable, Equatable {
     }
     
     static func == (lhs: Venue, rhs: Venue) -> Bool {
-        // I noticed some venues are duplicates. To remove them I check to see if they have the same long&lat
+        // I noticed some venues are duplicates. To remove them I check to see if they have the same long & lat & name
         return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude && lhs.name == rhs.name
     }
 }

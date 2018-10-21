@@ -30,19 +30,19 @@ class Header: UIView {
         .color(.white)
     )
     
-    let fullStackView = UIStackView()
-    let horizontalStackView = UIStackView()
+    private let fullStackView = UIStackView()
+    private let horizontalStackView = UIStackView()
     
-    let userImageView = CircleImageView()
-    let searchBar = UITextField()
+    private let userImageView = CircleImageView()
+    private let searchBar = UITextField()
     
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         return label
     }()
     
-    let rightButton: UIButton = {
+    private let rightButton: UIButton = {
         let button = UIButton(type : .system)
         // Just making this a square because I couldn't find an image for this button
         button.layer.borderColor = UIColor.white.cgColor
@@ -64,37 +64,21 @@ class Header: UIView {
         horizontalStackView.topAnchor == topAnchor + 8
         horizontalStackView.heightAnchor == 36
         
-//        userImageView.heightAnchor == 28
         userImageView.widthAnchor == 36
         userImageView.image = UIImage(named: "profilePicture")
         userImageView.contentMode = .scaleAspectFill
-        
-        // addSubview(titleLabel)
-        // titleLabel.centerXAnchor == self.centerXAnchor
+ 
         titleLabel.attributedText = "Select Venue".styled(with: titleStyle)
-        // titleLabel.text = "Select Venue"
-        
-        // addSubview(rightButton)
-//        rightButton.heightAnchor == 28
         rightButton.widthAnchor == 36
-        // rightButton.rightAnchor == self.rightAnchor - 20
-        // rightButton.topAnchor == self.topAnchor + 4
-        // rightButton.bottomAnchor == self.bottomAnchor - 4
         
         horizontalStackView.addArrangedSubviews([userImageView, titleLabel, rightButton])
         horizontalStackView.bottomAnchor == bottomAnchor - 8
-        
-        
-        
-        
-        
-        
+
 //        addSubview(searchBar)
 //        searchBar.placeholder = "search venues..."
 //        searchBar.layer.cornerRadius = searchBar.frame.height/2
         
     }
-    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
