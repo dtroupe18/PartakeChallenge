@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher // image downloading & caching
 import Anchorage // constraints
+import CoreLocation
 
 class VenuesViewController: UIViewController {
 
@@ -24,6 +25,9 @@ class VenuesViewController: UIViewController {
     private var searchTerm: String?
     
     private let tapGesture = UITapGestureRecognizer()
+    private var userLocation = CLLocation()
+    let locationManager = CLLocationManager()
+    var authStatus = CLLocationManager.authorizationStatus()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,12 +49,31 @@ class VenuesViewController: UIViewController {
         })
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Ask user for permission
+        //
+        if !canAccessLocation() {
+            if authStatus != .denied {
+                locationManager.requestWhenInUseAuthorization()
+            } else {
+                showLocationError()
+            }
+        }
+    }
+    
+    private func showLocationError() {
+        let message = "Without access to your location Partake cannot provide the distance to a venue. You can update location access in settings."
+        showAlert(title: "Location Access Denied", actionText: "OK", message: message)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.estimatedRowHeight = 0
         tableView.estimatedSectionHeaderHeight = 0
         tableView.estimatedSectionFooterHeight = 0
+        tableView.prefetchDataSource = self
         
         view.backgroundColor = UIColor.backgroundBlack
         view.addSubview(header)
@@ -73,6 +96,7 @@ class VenuesViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
         
         header.searchBar.delegate = self
+        locationManager.delegate = self
         // loadVenuesDataFromJson(fileName: "default")
     }
     
@@ -83,13 +107,19 @@ class VenuesViewController: UIViewController {
     }
 
     private func loadMoreVenues() {
-        print("loading more")
         RequestManager.shared.getVenues(page: currentPage, searchTerm: searchTerm, venueCallback: { [weak self] newVenues in
             self?.venues += newVenues
-            self?.tableView.reloadData()
+            
+            UIView.performWithoutAnimation {
+                self?.tableView.reloadData()
+                self?.tableView.beginUpdates()
+                self?.tableView.endUpdates()
+            }
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                 self?.loading = false
             }
+            
             }, onError: { [weak self] error in
                 self?.showAlert(title: "Error", actionText: "OK", message: error.localizedDescription)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
@@ -121,20 +151,65 @@ class VenuesViewController: UIViewController {
     }
 }
 
+// Marker: Location
+extension VenuesViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if authStatus == .denied {
+            showLocationError()
+        } else if status == .authorizedAlways || status == .authorizedWhenInUse {            
+            if let location = locationManager.location {
+                userLocation = location
+                UIView.performWithoutAnimation {
+                    // reload so distances can be displayed
+                    tableView.reloadData()
+                    tableView.beginUpdates()
+                    tableView.endUpdates()
+                }
+            } else {
+                print("no location!")
+            }
+        }
+    }
+    
+    private func canAccessLocation() -> Bool {
+        switch authStatus {
+            
+        case .authorizedAlways:
+            return true
+        case .authorizedWhenInUse:
+            return true
+        case .denied:
+            return false
+        case .restricted:
+            return false
+        case .notDetermined:
+            return false
+        }
+    }
+}
+
+// Marker: Search
 extension VenuesViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         var shouldLoadVenues: Bool = false
         textField.resignFirstResponder()
         
-        if textField.text != "", let term = textField.text {
+        if textField.text != "", var term = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
+            term = term.replacingOccurrences(of: "\\s+|\\s$", with: " ", options: .regularExpression) // makes all spaces single so the url will work
+            guard let escapedTerm = term.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else { return false }
+
             shouldLoadVenues = true
-            searchTerm = term
+            searchTerm = escapedTerm
+            currentPage = 1
+            print("search term: \(escapedTerm)")
             loading = true
         } else if searchTerm != nil && textField.text == "" {
             // user cleared the textField so remove the search
             shouldLoadVenues = true
             searchTerm = nil
+            currentPage = 1
             loading = true
         }
         
@@ -142,7 +217,10 @@ extension VenuesViewController: UITextFieldDelegate {
             RequestManager.shared.getVenues(page: 1, searchTerm: searchTerm, venueCallback: { [weak self] newVenues in
                 self?.venues = newVenues
                 self?.tableView.reloadData()
-                self?.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+                
+                if !newVenues.isEmpty {
+                    self?.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+                }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                     self?.loading = false
                 }
@@ -157,6 +235,7 @@ extension VenuesViewController: UITextFieldDelegate {
     }
 }
 
+// Marker: TableView
 extension VenuesViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -169,7 +248,7 @@ extension VenuesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! VenueCell
-        cell.configure(withVenue: venues[indexPath.row])
+        cell.configure(withVenue: venues[indexPath.row], userLocation: userLocation)
         cell.hide()
         return cell
     }
@@ -180,7 +259,8 @@ extension VenuesViewController: UITableViewDataSource {
             venueCell.show()
         }
         
-        if !loading && indexPath.row == venues.count - 10 {
+        if !loading && indexPath.row == venues.count - 5 {
+            print("loading more!")
             loading = true
             currentPage += 1
             loadMoreVenues()
@@ -196,10 +276,11 @@ extension VenuesViewController: UITableViewDelegate {
     // unused as of now
 }
 
+// Marker: Prefetching
 extension VenuesViewController: UITableViewDataSourcePrefetching {
     // Starts loading images ahead of the users current scroll position
     
-    func getImageUrls(for indexPaths: [IndexPath]) -> [URL] {
+    private func getImageUrls(for indexPaths: [IndexPath]) -> [URL] {
         var urls = [URL]()
         for indexPath in indexPaths {
             if indexPath.row < venues.count {

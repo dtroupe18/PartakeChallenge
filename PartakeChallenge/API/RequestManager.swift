@@ -92,9 +92,12 @@ class RequestManager {
                 let filteredVenues = venueArray.filter { $0.longitude != 0.0 && $0.latitude != 0.0 && $0.name != ""
                     && $0.address.city != "" && $0.address.state != "" && $0.imageURL != ""}
                 
+                // I Noticed Mansfield National Golf club was a duplicate because it had bad long & lat values so this should remove any venues with the same problem
+                let filteredAgain = filteredVenues.filter { $0.longitude >= -180.0 && $0.longitude <= 180.0 && $0.latitude >= -85.05112878 && $0.latitude <= 85.05112878}
+                
                 var uniqueVenues = [Venue]()
                 // Remove duplicates
-                for venue in filteredVenues {
+                for venue in filteredAgain {
                     if !uniqueVenues.contains(venue) {
                         // Removes Venues with the same name + GPS
                         uniqueVenues.append(venue)
