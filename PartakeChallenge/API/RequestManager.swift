@@ -76,8 +76,15 @@ class RequestManager {
         task.resume()
     }
     
-    func getVenues(page: Int, venueCallback: VenueCallback?, onError: ErrorCallback?) {
-        makeGetRequest(urlAddition: "?page=\(page)", onSuccess: { data in
+    func getVenues(page: Int, searchTerm: String?, venueCallback: VenueCallback?, onError: ErrorCallback?) {
+        var urlAddition = ""
+        if let term = searchTerm {
+            urlAddition += "?q=\(term)&page=\(page)"
+        } else {
+            urlAddition += "?page=\(page)"
+        }
+    
+        makeGetRequest(urlAddition: urlAddition, onSuccess: { data in
             // Decode this data into our desired struct
             do {
                 let venueArray = try JSONDecoder().decode([Venue].self, from: data)

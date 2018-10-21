@@ -79,7 +79,6 @@ class Header: UIView {
         rightButton.widthAnchor == 36
 
         horizontalStackView.addArrangedSubviews([userImageView, titleLabel, rightButton])
-
         addSubview(searchBar)
         
         let searchImage = UIImage(named: "search")
@@ -110,5 +109,4 @@ class Header: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
