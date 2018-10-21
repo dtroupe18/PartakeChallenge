@@ -12,6 +12,9 @@ import Foundation
 typealias ErrorCallback = (Error) -> Void
 typealias DataCallback = (Data) -> Void
 
+// Specific type callbacks
+typealias VenueCallback = ([Venue]) -> Void
+
 enum RequestError: String, Error {
     case badURL = "Error URL is not working!"
     case noData = "No Data!"
@@ -71,5 +74,31 @@ class RequestManager {
             }
         }
         task.resume()
+    }
+    
+    func getVenues(page: Int, venueCallback: VenueCallback?, onError: ErrorCallback?) {
+        makeGetRequest(urlAddition: "?page=\(page)", onSuccess: { data in
+            // Decode this data into our desired struct
+            do {
+                let venueArray = try JSONDecoder().decode([Venue].self, from: data)
+                // Here I remove any venues that are missing "required" information before it's passed to the view.
+                let filteredVenues = venueArray.filter { $0.longitude != 0.0 && $0.latitude != 0.0 && $0.name != ""
+                    && $0.address.city != "" && $0.address.state != "" && $0.imageURL != ""}
+                
+                var uniqueVenues = [Venue]()
+                // Remove duplicates
+                for venue in filteredVenues {
+                    if !uniqueVenues.contains(venue) {
+                        // Removes Venues with the same name + GPS
+                        uniqueVenues.append(venue)
+                    }
+                }
+                venueCallback?(uniqueVenues)
+            } catch {
+                 onError?(RequestError.decodeFailed.getError(withCode: 370))
+            }
+        }, onError: { error in
+             onError?(error)
+        })
     }
 }

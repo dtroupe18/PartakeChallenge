@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Venue: Decodable {
+struct Venue: Decodable, Equatable {
     // I removed these because I couldn't find an example where they exist. Assuming they are JSON objects I can't decode them without knowing the structure
     // let stores, restaurants
     
@@ -17,8 +17,8 @@ struct Venue: Decodable {
     let created: String
     let isPublic: Bool
     let courses: [String]?
-    let address: Address?
-    let imageURL: String?
+    let address: Address
+    let imageURL: String
     let type: String
     let countryCode: String?
     let website: String?
@@ -41,14 +41,21 @@ struct Venue: Decodable {
         self.created = try container.decodeIfPresent(String.self, forKey: .created) ?? ""
         self.isPublic = try container.decodeIfPresent(Bool.self, forKey: .isPublic) ?? false
         self.courses = try container.decodeIfPresent([String].self, forKey: .courses) // no default because it's optional
-        self.address = try container.decodeIfPresent(Address.self, forKey: .address)
-        self.imageURL = try container.decodeIfPresent(String.self, forKey: .imageURL)
+        self.address = try container.decodeIfPresent(Address.self, forKey: .address) ?? Address(defaultValue: true)
+        
+        // For this imageURL I filter out the venues without and image, but I could also use a default image
+        self.imageURL = try container.decodeIfPresent(String.self, forKey: .imageURL) ?? ""
         self.type = try container.decodeIfPresent(String.self, forKey: .type) ?? ""
         self.countryCode = try container.decodeIfPresent(String.self, forKey: .countryCode)
         self.website = try container.decodeIfPresent(String.self, forKey: .website)
         self.isPreview = try container.decodeIfPresent(Bool.self, forKey: .isPreview)
         self.shareTabs = try container.decodeIfPresent(Bool.self, forKey: .shareTabs)
         self.trackEmployees = try container.decodeIfPresent(Bool.self, forKey: .trackEmployees)
+    }
+    
+    static func == (lhs: Venue, rhs: Venue) -> Bool {
+        // I noticed some venues are duplicates. To remove them I check to see if they have the same long&lat
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude && lhs.name == rhs.name
     }
 }
 
@@ -67,6 +74,16 @@ struct Address: Codable {
         self.zip = try container.decodeIfPresent(Int.self, forKey: .zip) ?? 0
         self.line2 = try container.decodeIfPresent(String.self, forKey: .line2)
         self.formatted = try container.decodeIfPresent(String.self, forKey: .formatted)
+    }
+    
+    init(defaultValue: Bool = true) {
+        // This is used so that Address is not an optional value in a Venue
+        self.state = ""
+        self.line1 = ""
+        self.city = ""
+        self.zip = 0
+        self.line2 = nil
+        self.formatted = nil
     }
 }
 
