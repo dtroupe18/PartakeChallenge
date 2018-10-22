@@ -104,6 +104,7 @@ class Header: UIView {
         searchBar.bottomAnchor == bottomAnchor - 13
         searchBar.backgroundColor = .white
         searchBar.layer.cornerRadius = 15
+        searchBar.keyboardAppearance = .dark
     }
     
     required init?(coder aDecoder: NSCoder) {
