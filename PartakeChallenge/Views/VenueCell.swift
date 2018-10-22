@@ -26,7 +26,6 @@ class VenueCell: UITableViewCell {
         .color(.white)
     )
     
-    let containerView = UIView()
     let venueImageView = UIImageView()
     let labelStackView = UIStackView()
     let nameLabel = UILabel()
@@ -38,17 +37,13 @@ class VenueCell: UITableViewCell {
     
     func configure(withVenue venue: Venue, userLocation: CLLocation) {
         backgroundColor = UIColor.backgroundBlack
-        addSubview(containerView)
-        containerView.edgeAnchors == edgeAnchors
-        
         addSubview(venueImageView)
         venueImageView.layer.cornerRadius = 8
         venueImageView.clipsToBounds = true
-        venueImageView.topAnchor == topAnchor
+        venueImageView.topAnchor == topAnchor + 4
         venueImageView.horizontalAnchors == horizontalAnchors + 20
         venueImageView.heightAnchor == venueImageView.widthAnchor * 0.51
         venueImageView.contentMode = .scaleToFill
-        venueImageView.kf.indicatorType = .activity
         
         if let url = URL(string: venue.imageURL) {
             KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil, completionHandler: {[weak self] image, error, cacheType, imageURL in
@@ -56,12 +51,7 @@ class VenueCell: UITableViewCell {
                     print("Error: \(error!.localizedDescription)")
                 } else if let img = image, let sself = self {
                     let resized = img.resizedImageWith(targetSize: sself.venueImageView.frame.size)
-                    
-                    sself.venueImageView.alpha = 0
                     sself.venueImageView.image = resized
-                    UIView.animate(withDuration: 0.2) {
-                        sself.venueImageView.alpha = 1
-                    }
                 }
             })
         } else {
@@ -82,10 +72,10 @@ class VenueCell: UITableViewCell {
         labelStackView.axis = .vertical
         labelStackView.spacing = 4
         labelStackView.distribution = .fillProportionally
+        labelStackView.addArrangedSubviews([nameLabel, locationLabel])
         labelStackView.topAnchor == venueImageView.bottomAnchor + 8
         labelStackView.horizontalAnchors == horizontalAnchors + 20
         labelStackView.bottomAnchor == bottomAnchor - 12
-        labelStackView.addArrangedSubviews([nameLabel, locationLabel])
 
         selectionStyle = .none
     }
@@ -109,13 +99,13 @@ class VenueCell: UITableViewCell {
     }
     
     func hide() {
-        for view in containerView.subviews {
+        for view in self.subviews {
             view.alpha = 0.0
         }
     }
     
     func show() {
-        for view in containerView.subviews {
+        for view in self.subviews {
             view.alpha = 1.0
         }
     }

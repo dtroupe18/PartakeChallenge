@@ -52,7 +52,6 @@ class VenuesViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // Ask user for permission
-        //
         if !canAccessLocation() {
             if authStatus != .denied {
                 locationManager.requestWhenInUseAuthorization()
@@ -70,7 +69,7 @@ class VenuesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.estimatedRowHeight = 0
+        tableView.estimatedRowHeight = 238
         tableView.estimatedSectionHeaderHeight = 0
         tableView.estimatedSectionFooterHeight = 0
         tableView.prefetchDataSource = self
@@ -108,16 +107,22 @@ class VenuesViewController: UIViewController {
 
     private func loadMoreVenues() {
         RequestManager.shared.getVenues(page: currentPage, searchTerm: searchTerm, venueCallback: { [weak self] newVenues in
-            self?.venues += newVenues
             
-            UIView.performWithoutAnimation {
-                self?.tableView.reloadData()
-                self?.tableView.beginUpdates()
-                self?.tableView.endUpdates()
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                self?.loading = false
+            if !newVenues.isEmpty {
+                self?.venues += newVenues
+                
+                // Add a slight delay here to slow the users overly fast scroll down
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {
+                    UIView.performWithoutAnimation {
+                        self?.tableView.reloadData()
+                        self?.tableView.beginUpdates()
+                        self?.tableView.endUpdates()
+                    }
+                    self?.loading = false
+                }
+                
+            } else {
+                self?.loading = true // nothing else to get stop calling the API
             }
             
             }, onError: { [weak self] error in
@@ -220,6 +225,8 @@ extension VenuesViewController: UITextFieldDelegate {
                 
                 if !newVenues.isEmpty {
                     self?.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+                } else {
+                    self?.showAlert(title: "No Results", actionText: "OK", message: "We couldn't find any venues that matches your request!")
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                     self?.loading = false
@@ -249,17 +256,13 @@ extension VenuesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! VenueCell
         cell.configure(withVenue: venues[indexPath.row], userLocation: userLocation)
-        cell.hide()
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let venueCell = cell as? VenueCell {
-            cellHeights[indexPath] = cell.frame.size.height
-            venueCell.show()
-        }
+        cellHeights[indexPath] = cell.frame.size.height
         
-        if !loading && indexPath.row == venues.count - 5 {
+        if !loading && indexPath.row + 5 >= venues.count {
             print("loading more!")
             loading = true
             currentPage += 1
@@ -268,7 +271,7 @@ extension VenuesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return cellHeights[indexPath] ?? 200.0
+        return cellHeights[indexPath] ?? 230.0
     }
 }
 
